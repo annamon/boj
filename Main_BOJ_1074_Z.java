@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main_BOJ_1074_Z {
 
-	static int N, r, c, a, b, o;
+	static int N, r, c;
 	static int[][] array;
 	public static void main(String[] args) {
 		Scanner scann = new Scanner(System.in);
@@ -30,25 +30,25 @@ public class Main_BOJ_1074_Z {
 			return;
 		}
 		
-		a = (int) Math.pow(2, num-1);
-		b = (int) Math.pow(2, num);
-		o = (int) Math.pow(2, 2*(num-1));
+		int a = (int) Math.pow(2, num-1);
+		int b = (int) Math.pow(2, num);
+		int o = (int) Math.pow(2, 2*(num-1));
 		
-		array[nr][nc] = cnt;
-		array[nr][nc+a] = cnt + 1*o;
-		array[nr+a][nc] = cnt + 2*o;
-		array[nr+a][nc+a] = cnt + 3*o;
+		array[nr][nc] = cnt;			// A
+		array[nr][nc+a] = cnt + 1*o;	// B
+		array[nr+a][nc] = cnt + 2*o;	// C
+		array[nr+a][nc+a] = cnt + 3*o;  // D
 		
-		if(nr<=r && r< nr+a && nc<=c && c< nc+a) {}
-		else if(nr<=r && r< nr+a && nc+a<=c && c<nc+b) {
+		if(nr<=r && r< nr+a && nc<=c && c< nc+a) {} // 목표가 A 내라면
+		else if(nr<=r && r< nr+a && nc+a<=c && c<nc+b) { // 목표가 B 내라면
 			cnt += 1*o;
 			nc +=a;
 		}
-		else if(nr+a<=r && r< nr+b && nc<=c && c<nc+a) {
+		else if(nr+a<=r && r< nr+b && nc<=c && c<nc+a) { // 목표가 C 내라면
 			cnt += 2*o;
 			nr +=a;
 		}
-		else{
+		else{ // 목표가 D 내라면
 			cnt += 3*o;
 			nr +=a;
 			nc +=a;
