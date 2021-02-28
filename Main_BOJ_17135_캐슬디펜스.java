@@ -46,7 +46,6 @@ public class Main_BOJ_17135_캐슬디펜스 {
 		if(cnt==3) {
 			for (int i = whereE.get(0).r; i <= N; i++) {
 				for (int j = 0; j < choose.length; j++) {
-					int 
 					for (int k = 0; k < whereE.size(); k++) {
 						int distance = Math.abs(archerList.get(choose[j]).r - whereE.get(k).r)
 								+ Math.abs(archerList.get(choose[j]).c - whereE.get(k).c);
